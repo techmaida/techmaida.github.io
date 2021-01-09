@@ -1,3 +1,0 @@
-# My index page
-
-Hi !!!!
