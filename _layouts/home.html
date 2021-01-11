@@ -24,13 +24,15 @@ layout: default
     <ul class="post-list">
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
       {%- for post in posts -%}
-      <li>
+      <li style="margin-bottom: 40px;">
         <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
+        <h3 style="margin-bottom: 0px;">
           <a class="post-link" href="{{ post.url | relative_url }}">
             {{ post.title | escape }}
           </a>
         </h3>
+        <span style="font-style: italic; margin-left: 15px">Written by: {{post.author}}</span>
+        <span style="display: block; margin-left: 15px;">Tags: <code class="highlighter-rouge">{{post.tags}}</code></span>
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
         {%- endif -%}
