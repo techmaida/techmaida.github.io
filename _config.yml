@@ -27,6 +27,9 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 linkedin_profile: "https://www.linkedin.com/in/jpmaida/"
+github:
+  blog: "https://github.com/techmaida/techmaida.github.io"
+  personal: "https://github.com/jpmaida"
 
 # Build settings
 theme: jekyll-theme-hacker
