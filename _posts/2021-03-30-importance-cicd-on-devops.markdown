@@ -5,32 +5,8 @@ date:   2021-03-30 23:29:44
 author: "João Paulo Maida"
 tags: "DevOps"
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-Jekyll requires blog post files to be named according to the following format:
+Understand the importance of CI/CD on DevOps is one of the major goals to be achieved when a company decides to implement the truthful DevOps. But, why's that ?
 
-`YEAR-MONTH-DAY-title.MARKUP`
+Why do I have to understand the importance about this and why do I have the obligation to understand first what is CI/CD ? Of course, I am assuming that you know what DevOps is. But when I say "DevOps", I mean the truthful one. I am not referring to those cases where companies buy the most top existing tools on the market and think that all problems will be solved by these tools. I think, by my experience, that understand what DevOps really is the biggest challenge to be persued. That is the place where all the eyes should be and implement CI/CD comes next. So, this is my goal with this article, bring my point of view about what I believe to be DevOps, CI/CD and really understand what is the importance mentioned in article title.
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
-
-Jekyll also offers powerful support for code snippets:
-
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
-
-{% highlight java %}
-public class Foo{
-  void foo(){}
-}
-{% endhighlight %}
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
