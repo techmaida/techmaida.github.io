@@ -41,4 +41,4 @@ That should be very easy to answer. Without feedbacks and continuous learning pr
 
 In a nutshell ....
 
-explicar cada um
+explicar cada um > falar um pouco do conflito basico > citar a questão da produtividade > por fim dizer onde o CI/CD está e como testes são importantes
