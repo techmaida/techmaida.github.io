@@ -3,7 +3,7 @@ layout: post
 title:  "The importance of CI/CD on DevOps"
 date:   2021-03-30 23:29:44
 author: "João Paulo Maida"
-tags: "DevOps"
+tags: "DevOps, Unit tests, TDD"
 ---
 
 Understand the importance of CI/CD on DevOps is one of the major goals to be achieved when a company decides to implement the truthful DevOps. But, why's that ?
@@ -35,4 +35,10 @@ Don't believe me !? See the picture below.
 
 ![Daniel San and Mr Miyagi practicing Kata.](/assets/img/importance-cicd-on-devops/kata.png "Daniel San and Mr Miyagi practicing Kata.")
 
-Everytime that you saw the movie Karate Kid, specially this scene or the training on the beach, you were being presented to the practice of Kata. The whole idea of Kata is technique improvement. So how DevOps can be achievable if we still don't incorporate this practice, which is by the way, one of the DevOps foundations ?
+Everytime that you watched the movie Karate Kid, specially this scene or the training on the beach, you were being presented to the practice of Kata. The whole idea of Kata is technique improvement. So how DevOps can be achievable if we still don't incorporate this practice, which is by the way, one of the DevOps foundations ?
+
+That should be very easy to answer. Without feedbacks and continuous learning principles DevOps isn't achievable at all. These two practices united with the flow principle compose the three pillars of DevOps.
+
+In a nutshell ....
+
+explicar cada um
