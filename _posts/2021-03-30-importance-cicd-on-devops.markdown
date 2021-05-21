@@ -39,6 +39,15 @@ Everytime that you watched the movie Karate Kid, specially this scene or the tra
 
 That should be very easy to answer. Without feedbacks and continuous learning principles DevOps isn't achievable at all. These two practices united with the flow principle compose the three pillars of DevOps.
 
-In a nutshell ....
+In a nutshell, the three principles make up everything that supports DevOps. The first one, flow principle, demands a fast and smooth workflow from Development teams to Operation teams in order to deliver results (value) to the customers. We optimize heading this global goal instead of local goals. We increase this flow making our work visible, reducing the workload size and work gap, and introducing quality, avoiding failures to pass to other work cores further. Accelerating the fluency through the technological value flow, we reduce the execution time demanded to serve requests from inside and outside customers, so we increase work quality while becoming more agile and able to step up against competition (Kim, Gene; Humble, Jez; Debois, Patrick; e Willis, John).
+
+At this moment we face a concept derivated from Lean: execution time and process time. I don't need to mention how important this is because as you can see DevOps has a lot to do with Lean. So, expect to hear these terms again. Execution time is the time measured between the request creation by a customer and when it's fulfilled. The process time begins only when we start to work on this request (it omits the queue time, waiting to processed) (Kim, Gene; Humble, Jez; Debois, Patrick; e Willis, John). Remember this two concepts because they will be used along this article.
+
+So, the flow principle's idea is: we need to accelerate our production making our work visible and introducing quality at the same time.
+
+The second principle, ....
 
 explicar cada um > falar um pouco do conflito basico > citar a questão da produtividade > por fim dizer onde o CI/CD está e como testes são importantes
+
+### References
+Kim, Gene; Humble, Jez; Debois, Patrick; e Willis, John; Manual de DevOps - Como obter agilidade confiabilidade e segurança em organizações tecnológicas; Alta Books Editora
