@@ -33,7 +33,7 @@ Toyota Kata is a book written by Mike Rother that describes how he was surprised
 
 Don't believe me !? See the picture below.
 
-![Daniel San and Mr Miyagi practicing Kata.](/assets/img/importance-cicd-on-devops/kata.png "Daniel San and Mr Miyagi practicing Kata.")
+![Picture 1 - Daniel San and Mr Miyagi practicing Kata.](/assets/img/importance-cicd-on-devops/kata.png "Picture 1 - Daniel San and Mr Miyagi practicing Kata.")
 
 Everytime that you watched the movie Karate Kid, specially this scene or the training on the beach, you were being presented to the practice of Kata. The whole idea of Kata is technique improvement. So how DevOps can be achievable if we still don't incorporate this practice, which is by the way, one of the DevOps foundations ?
 
@@ -61,7 +61,17 @@ The last and third principle, continuous learning principle, is focused in a cul
 
 Our ultimate goal is to create a high trusted culture, learning with our successes and failures, identifying ideas that didn't work and reinforce those that worked. Besides, any local learnings are rapidly turned in global improvements, in a fashion that new techniques and practices can be used by the entire organization. Reserve time to work improvement daily is also important (remember what Kata is) so learnings can be accelerated (Kim, Gene; Humble, Jez; Debois, Patrick; e Willis, John).
 
-Try to meditate about this last paragraph. We're talking about, maybe, introduce bugs to our software to see how it works and how our envinronment responds to this stimulus. Notice the amount of maturity to be at this stage. It isn't possible to start this all changing process/culture building and at first day say 'we're DevOps compliance'. It's almost a bad joke ! As I said in the beggining, it isn't only buy a bunch of tools or use Scrum, it is necessary to change people's minds, change the current process, the _status quo_, the system.
+Try to meditate about this last paragraph. We're talking about, maybe, introduce bugs to our software to see how it works and how our envinronment responds to this stimulus. Notice the amount of maturity to be at this stage. It isn't possible to start this all changing process/culture building and at first day say 'we're DevOps compliance'. It's almost a bad joke ! As I said in the beggining, it isn't only buy a bunch of tools, use Scrum or say that Ops team works together with Dev team, it is necessary to change people's minds, change the current process, the _status quo_, the system.
+
+![Picture 2 - The classic conflict, before and after.](/assets/img/importance-cicd-on-devops/devops-explained.png "Picture 2 - The classic conflict, before and after.")
+
+When we label DevOps just as a way to tear walls down like the one showed by the first frame of the picture above (most mainstreamed label), we are shortening the truthful power of DevOps and don't see the real challenge ahead us. You can't go from 0 to hero in one day, there is a journey to adopt those three principles and build maturity and confidence. Some of these principles will be hard to understand and apply in your scenario, it takes times to arrange. What we expect at the end is what frame 2 shows, integrated teams sharing knowledge, creating new knowledge and helping each other, the three principles.
+
+Coming back to the very beggining of this article: why CI/CD is so important when we discuss DevOps ? I see CI/CD as an important player in this game because it puts on practice the three principles discussed. If I integrate my software with security and quality measures since day 1 using a pipeline, I am meeting the first principles requirements. If I can discover mistakes and learn with them earlier using unit tests associated with my pipeline, I collect the benefits of the second principle. If I experiment some new tech in my application, I can check how my entire pipeline behaved. Does this new tech breaks my compilation process ? How can I deploy faster ? How can I assure quality on my deploys ? These questions are just the tip of the iceberg about what CI/CD answers associated with DevOps.
+
+It's important to understand that CI/CD represents just a facet in multifaceted prism, as we covered DevOps goes way further.
+
+
 
 explicar cada um > falar um pouco do conflito basico > citar a questão da produtividade > por fim dizer onde o CI/CD está e como testes são importantes
 
