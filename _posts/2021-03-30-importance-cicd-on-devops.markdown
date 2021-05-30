@@ -69,9 +69,9 @@ When we label DevOps just as a way to tear walls down like the one showed by the
 
 Coming back to the very beggining of this article: why CI/CD is so important when we discuss DevOps ? I see CI/CD as an important player in this game because it puts on practice the three principles discussed. If I integrate my software with security and quality measures since day 1 using a pipeline, I am meeting the first principles requirements. If I can discover mistakes and learn with them earlier using unit tests associated with my pipeline, I collect the benefits of the second principle. If I experiment some new tech in my application, I can check how my entire pipeline behaved. Does this new tech breaks my compilation process ? How can I deploy faster ? How can I assure quality on my deploys ? These questions are just the tip of the iceberg about what CI/CD answers associated with DevOps.
 
-It's important to understand that CI/CD represents just a facet in multifaceted prism, as we covered DevOps goes way further.
+It's important to understand that CI/CD represents just a facet in multifaceted prism, as we covered DevOps goes way further. This answers to another question done in the begging of this article.
 
-
+You could wonder how difficult a CI/CD pipeline should be to leverage DevOps ? One that isn't difficult at all, the whole idea here is to make it simple
 
 explicar cada um > falar um pouco do conflito basico > citar a questão da produtividade > por fim dizer onde o CI/CD está e como testes são importantes
 
