@@ -71,9 +71,9 @@ Coming back to the very beggining of this article: why CI/CD is so important whe
 
 It's important to understand that CI/CD represents just a facet in multifaceted prism, as we covered DevOps goes way further. This answers to another question done in the begging of this article.
 
-You could wonder how difficult a CI/CD pipeline should be to leverage DevOps ? One that isn't difficult at all, the whole idea here is to make it simple
+You could wonder how difficult a CI/CD pipeline should be to leverage DevOps ? One that isn't difficult at all, the whole idea here is to make it simple.
 
-explicar cada um > falar um pouco do conflito basico > citar a questão da produtividade > por fim dizer onde o CI/CD está e como testes são importantes
+por fim dizer como testes são importantes
 
 ### References
 Kim, Gene; Humble, Jez; Debois, Patrick; e Willis, John; Manual de DevOps - Como obter agilidade confiabilidade e segurança em organizações tecnológicas; Alta Books Editora
