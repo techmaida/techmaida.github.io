@@ -69,11 +69,14 @@ When we label DevOps just as a way to tear walls down like the one showed by the
 
 Coming back to the very beggining of this article: why CI/CD is so important when we discuss DevOps ? I see CI/CD as an important player in this game because it puts on practice the three principles discussed. If I integrate my software with security and quality measures since day 1 using a pipeline, I am meeting the first principles requirements. If I can discover mistakes and learn with them earlier using unit tests associated with my pipeline, I collect the benefits of the second principle. If I experiment some new tech in my application, I can check how my entire pipeline behaved. Does this new tech breaks my compilation process ? How can I deploy faster ? How can I assure quality on my deploys ? These questions are just the tip of the iceberg about what CI/CD answers associated with DevOps.
 
-It's important to understand that CI/CD represents just a facet in multifaceted prism, as we covered DevOps goes way further. This answers to another question done in the begging of this article.
+It's important to understand that CI/CD represents just a facet in multifaceted prism, as we covered DevOps goes way further. This answers to another question done in the beggining of this article.
 
-You could wonder how difficult a CI/CD pipeline should be to leverage DevOps ? One that isn't difficult at all, the whole idea here is to make it simple.
+You could wonder: how difficult a CI/CD pipeline should be to leverage DevOps ? One that isn't difficult at all, the whole idea here is to make it simple.
 
-por fim dizer como testes são importantes
+And, here goes my final conclusion: even more important than CI/CD to leverage DevOps is building a testing culture inside your organization. I affirm that because, by my own experience, this is most struggling part when an organization decides to create a moviment around DevOps and is the biggest lack of all times. How do you want to assure quality without tests ? What's the point to have a perfect CI/CD pipeline and have zero unit tests ? Notice that I'm not even mentioning TDD because I understand that's an advanced practice for beginners, but at the same time necessary with you want to be really DevOps compliant.
+
+We must break the old taboo 'I don't have time to write tests'. Tests should be considered as a core member of the application like the code you write to handle business issues. Once again, I'm leaving outside this conversation advanced practices as DDD because I know the complexity it brings. So, in your regular Java, .Net Core, JavaScript or whatever application you can to life what we've been talking here. If we, as enginners, don't change our behaviour around this subject, we will be still healing the wound just with a band-aid.
 
 ### References
-Kim, Gene; Humble, Jez; Debois, Patrick; e Willis, John; Manual de DevOps - Como obter agilidade confiabilidade e segurança em organizações tecnológicas; Alta Books Editora
+
+* Kim, Gene; Humble, Jez; Debois, Patrick; e Willis, John; Manual de DevOps - Como obter agilidade confiabilidade e segurança em organizações tecnológicas; Alta Books Editora
