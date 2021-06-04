@@ -6,9 +6,13 @@ author: "João Paulo Maida"
 tags: "DevOps, Unit tests, TDD"
 ---
 
+## Introduction
+
 Understand the importance of CI/CD on DevOps is one of the major goals to be achieved when a company decides to implement the truthful DevOps. But, why's that ?
 
 Why do I have to understand the importance about this and why do I have the obligation to understand first what is CI/CD ? Of course, I am assuming that you know what DevOps is. But when I say "DevOps", I mean the truthful one. I am not referring to those cases where companies buy the most top existing tools on the market and think that all problems will be solved by these tools. I think, by my experience, that understand what DevOps really is the biggest challenge to be persued. That is the place where all the eyes should be and implement CI/CD comes next. So, this is my goal with this article, bring my point of view about what I believe to be DevOps, CI/CD and really understand what is the importance mentioned in article title.
+
+## What's DevOps ?
 
 So, what is DevOps ? In a really fast search on Google we can find the definition below:
 
@@ -29,7 +33,7 @@ The Agile Infrastructure and Velocity Moviment consists basically in a mobilizat
 
 Using the knowledge of building, testing and integrating continuously, Jez Humble and David Farley extended this whole concept to deliver continuously (CD) and create a new discipline in software engeneering. This practice defines a new implementation pipeline to ensure that source code and infrastructure are always implementable state.
 
-Toyota Kata is a book written by Mike Rother that describes how he was surprised when he noticed that no companies of the automobile field achieved the same level of perfection that Toyota has and that's the target of this study. In this book he explains that each organization has its owns work routines, but to achieve perfection is necessary to create a structure focused on the daily practice of work improvement. And the truth is, you are already familiar with japanese practice of Kata.
+Toyota Kata is a book written by Mike Rother which describes how he was surprised when he noticed that no companies of the automobile field achieved the same level of perfection that Toyota has and that's the target of his study. In this book he explains that each organization has its owns work routines, but to achieve perfection is necessary to create a structure focused on the daily practice of work improvement. And the truth is, you are already familiar with japanese practice of Kata.
 
 Don't believe me !? See the picture below.
 
@@ -38,6 +42,8 @@ Don't believe me !? See the picture below.
 Everytime that you watched the movie Karate Kid, specially this scene or the training on the beach, you were being presented to the practice of Kata. The whole idea of Kata is technique improvement. So how DevOps can be achievable if we still don't incorporate this practice, which is by the way, one of the DevOps foundations ?
 
 That should be very easy to answer. Without feedbacks and continuous learning principles DevOps isn't achievable at all. These two practices united with the flow principle compose the three pillars of DevOps.
+
+## The three principles of DevOps
 
 In a nutshell, the three principles make up everything that supports DevOps. The first one, flow principle, demands a fast and smooth workflow from Development teams to Operation teams in order to deliver results (value) to the customers. We optimize heading this global goal instead of local goals. We increase this flow making our work visible, reducing the workload size and work gap, and introducing quality, avoiding failures to pass to other work cores further. Accelerating the fluency through the technological value flow, we reduce the execution time demanded to serve requests from inside and outside customers, so we increase work quality while becoming more agile and able to step up against competition (Kim, Gene; Humble, Jez; Debois, Patrick; e Willis, John).
 
