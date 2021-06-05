@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<small>{{ page.date | date: "%-d %B %Y" }}</small>
+<h1 style="margin-bottom: 0px;">{{ page.title }}</h1>
+by {{ page.author | default: site.author }}
+<p class="view">
+    {% if page.tags %}
+        <!-- <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small> -->
+        {% assign tags = page.tags | split: ',' %}
+        {% for tag in tags %}
+            {{ "<em>" + tag + "</em>"}}
+        {% endfor %}
+    {% endif %}
+</p>
+
+{{content}}

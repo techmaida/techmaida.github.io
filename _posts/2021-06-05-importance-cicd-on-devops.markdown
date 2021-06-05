@@ -3,7 +3,7 @@ layout: post
 title:  "The importance of CI/CD on DevOps"
 date:   2021-06-05 12:46:15
 author: "João Paulo Maida"
-tags: "DevOps, CI/CD, Unit tests, TDD, DDD"
+tags: "DevOps,CI/CD,UnitTests,TDD,DDD"
 ---
 
 ## Introduction
