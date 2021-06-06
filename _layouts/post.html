@@ -7,11 +7,7 @@ layout: default
 by {{ page.author | default: site.author }}
 <p class="view">
     {% if page.tags %}
-        <!-- <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small> -->
-        {% assign tags = page.tags | split: ',' %}
-        {% for tag in tags %}
-            {{ "<em>" + tag + "</em>"}}
-        {% endfor %}
+        <small>tags: <em>{{ page.tags }}</em></small>
     {% endif %}
 </p>
 
