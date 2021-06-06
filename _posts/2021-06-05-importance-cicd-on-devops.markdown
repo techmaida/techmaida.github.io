@@ -38,7 +38,7 @@ Toyota Kata is a book written by Mike Rother which describes how he was surprise
 
 Don't believe me !? See the picture below.
 
-![Picture 1 - Daniel San and Mr Miyagi practicing Kata.](/assets/img/importance-cicd-on-devops/kata.png "Picture 1 - Daniel San and Mr Miyagi practicing Kata.")
+![Picture 1 - Daniel San and Mr Miyagi practicing Kata.](/assets/img/importance-cicd-on-devops/kata.png "Picture 1 - Daniel San and Mr Miyagi practicing Kata."){:class="img-responsive"}
 
 Everytime that you watched the movie Karate Kid, specially this scene or the training on the beach, you were being presented to the practice of Kata. The whole idea of Kata is technique improvement. So how DevOps can be achievable if we still don't incorporate this practice, which is by the way, one of the DevOps foundations ?
 
@@ -70,7 +70,7 @@ Our ultimate goal is to create a high trusted culture, learning with our success
 
 Try to meditate about this last paragraph. We're talking about, maybe, introduce bugs to our software to see how it works and how our envinronment responds to these stimuluses. Notice the amount of maturity to have at this stage. It isn't possible to start this all changing process and culture building and at first day say 'we're DevOps compliance'. It's almost a bad joke ! As I said at the beggining, it isn't only buy a bunch of tools, use Scrum or say that Ops team works together with Dev team, it is necessary to change people's minds, change the current process, the _status quo_, the system !
 
-![Picture 2 - The classic conflict, before and after.](/assets/img/importance-cicd-on-devops/devops-explained.png "Picture 2 - The classic conflict, before and after.")
+![Picture 2 - The classic conflict, before and after.](/assets/img/importance-cicd-on-devops/devops-explained.png "Picture 2 - The classic conflict, before and after."){:class="img-responsive"}
 
 When we label DevOps just as a way to tear walls down like the one showed by the first frame of the picture above (most mainstreamed label), we are shortening the truthful power of DevOps and don't see the real challenge ahead us. You can't go from 0 to hero in one day, there is a journey to adopt these three principles and build maturity and confidence. Some of these principles will be hard to understand and apply in your scenario, it takes times to arrange. What we expect at the end is what frame 2 shows, integrated teams sharing knowledge, creating new knowledge and helping each other, the three principles.
 
