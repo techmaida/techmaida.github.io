@@ -3,7 +3,7 @@ layout: post
 title:  "The importance of CI/CD on DevOps"
 date:   2021-06-05 12:46:15
 author: "João Paulo Maida"
-tags: "DevOps,CI/CD,UnitTests,TDD,DDD"
+tags: "DevOps, CI/CD, UnitTests, TDD, DDD"
 ---
 
 ## Introduction
@@ -19,6 +19,7 @@ So, what is DevOps ? In a really fast search on Google we can find the definitio
 "_DevOps is a set of practices that combines software development (Dev) and IT operations (Ops). It aims to shorten the systems development life cycle and provide continuous delivery with high software quality. DevOps is complementary with Agile software development; several DevOps aspects came from Agile methodology._"
 
 But the point is: this definition doesn't help at all. Of course it doesn't help, it's to vague and of course it is vague, it's a cutout from Wikipedia. What were you expecting ? However, even if it is vague, it tells us some important things. DevOps wasn't born from one day to another. It has its foundations in others methodologies, as:
+
 * Lean;
 * Agile Manifesto;
 * Agile Infrastructure and Velocity Moviment;

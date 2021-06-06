@@ -7,13 +7,13 @@ layout: default
 by {{ page.author | default: site.author }}
 <p class="view">
     {% if page.tags %}
-        <small>tags: <em>{{ page.tags }}</em></small>
+        <small>tags: <em>{{ page.tags | join: ' ' }}</em></small>
     {% endif %}
 </p>
 
 {{content}}
 
-<hr />
+<hr style="margin-top: 30px; margin-bottom: 30px;"/>
 
 <div style="display: table; width: 100%;">
     <div style="display: table-row;">
@@ -21,10 +21,16 @@ by {{ page.author | default: site.author }}
             <img src="/assets/img/layouts/post/profile-circle.png" title="That's me !!!" />
         </div>
         <div style="display: table-cell; width: 90%; vertical-align: middle; padding-left: 10px;">
-            <p>João Paulo Maida</p>
-            <small>
-                <em>Senior Middleware Consultant</em>
-            </small>
+            João Paulo Maida
+            <br />
+            <div>
+                <small>
+                    <em>Senior Middleware Consultant at Red Hat</em>
+                    <br />
+                    <q>If I have seen further it is by standing on the shoulders of Giants.</q>
+                    <address>techmaida.blog@gmail.com</address>
+                </small>
+            </div>
         </div>
     </div>
 </div>
