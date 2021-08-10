@@ -13,9 +13,7 @@ by {{ page.author | default: site.author }}
 
 {{content}}
 
-<hr style="margin-top: 30px; margin-bottom: 30px;"/>
-
-<div style="display: table; width: 100%;">
+<div style="display: table; width: 100%; margin-top: 30px;">
     <div style="display: table-row;">
         <div style="display: table-cell; width: 10%;">
             <img src="/assets/img/layouts/post/profile-circle.png" title="That's me !!!" />
@@ -36,6 +34,8 @@ by {{ page.author | default: site.author }}
 </div>
 
 {% if page.comments %}
+    <h2 style="margin-top: 60px;">Comments</h2>
+
     <div id="disqus_thread"></div>
     <script>
         /**
