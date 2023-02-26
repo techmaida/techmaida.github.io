@@ -85,6 +85,6 @@ And, here goes my final conclusion: even more important than CI/CD to leverage D
 
 We must break the old taboo 'I don't have time to write tests'. Tests should be considered as a core member of the application like the code you write to handle business issues. Once again, I'm leaving outside this conversation advanced practices as DDD because I know the complexity it brings. So, in your regular Java, .Net Core, JavaScript or whatever application you can bring to life what we've been talking here. If we, as enginners, don't change our behaviour around this subject, we will be still healing the wound just with a band-aid.
 
-### References
+## References
 
 * Kim, Gene; Humble, Jez; Debois, Patrick; e Willis, John; Manual de DevOps - Como obter agilidade confiabilidade e segurança em organizações tecnológicas; Alta Books Editora
