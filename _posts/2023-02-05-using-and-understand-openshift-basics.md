@@ -49,9 +49,27 @@ A pod doesn't live by its own, it lives inside a namespace. A namespace is a log
 
 To make the subject here discussed more feasible lets imagine a namespace which concentrates an PHP application and its database.
 
+![PHP application and its database](/assets/img/using-and-understanding-openshift-basics/app-and-database.jpg)
 
+How this application can communicate with the database? I assume that you're thinking about using the IP to directly close de communication, am I right?
 
+![Direct communication via IP](/assets/img/using-and-understanding-openshift-basics/direct-communiction-via-ip.png)
 
+That would work, perhaps, just at the first glance, but in the very moment that any of these pods fails and gets deleted a new is generated, a new IP address is given to that pod. That is an important feature in OpenShift and in the cloud-native world. Pods and consequently must be deleted and regenerated all the time in a fast way, so it's implicit that application must have fast startup and shutdowm times. So, at the end, you cannot use direct communication such as IP addresses or local storage like using the filesystem to store files or memory to data.
+
+But the question remains: how a container can communicate with other in a safe way?
+
+![Application communicates with database via service](/assets/img/using-and-understanding-openshift-basics/comm-via-svc.jpg){:style="display:block; margin-left:auto; margin-right:auto"}
+
+There is an element both present in Kubernetes and OpenShift called Service meant to resolve this issue. A service works like a DNS host, in other words, performs a search by given name and redirects the request to the IPs registered above that name. But how a service would know the correct IPs to redirect to if containers receives new IPs all the time? Each service has a selector, a way to describe which pods it will bind. When a new pod is created there is or not a match and that pod and its IP get into line.
+
+With this approach a consumer, the application in our scenario, doesn't have to concern where the database is. It only points to http://<service-name>.<namespace>.svc.cluster.local:<port>. This URL is just for internal cluster communications.
+
+But ... what if application A tries to send request to application B and B has multiple pods? How that would be handled? The answer is easy. OpenShift/Kubernetes services acts as load balancer. Once you hit the patterned URL showed above, the service will handle the rest, and the load-balancing algorithm can be customized in OpenShift scenarios. So, in a enterprise scenario expect multiple pods and services, it's rare to see an application without service.
+
+Using the same scenario, how this application would be accessed by client outside the cluster?
+
+explicar routes e depois configmaps e secrets
 
 * Definição do produto
 * Como usar
