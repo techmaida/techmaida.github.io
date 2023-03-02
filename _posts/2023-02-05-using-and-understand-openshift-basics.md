@@ -77,7 +77,17 @@ So, following the breadcrumb trail, a request comes from an external client (use
 
 A commom question is: can my application send/receive data using the route even if it's communicating with an application which is deployed inside the cluster? Yes you can but you are overheading the communication because the service already gives you the opportunity to communicate using plain HTTP.
 
-Now you have in your pocket what can be considered the basis related to how OpenShift works and handles applications. But we, as software engineers, know that there is a huge amount of concerns that live around these simples concepts. One of these concerns are: how an application could be updated on OpenShift? In
+Now you have in your pocket what can be considered the basis related to how OpenShift works and handles applications. But we, as software engineers, know that there is a huge amount of concerns that live around these simples concepts. One of these concerns are: how an application could be updated on OpenShift? In our example the application PHP had some improvements and new version must be deployed. How that would be addressed using OpenShift?
+
+A Deployment is a Kubernetes object widely used and adopted in OpenShift 4 to hold deployment configurations. A deployment holds the template of the future pods, so in this scenario a pod brings the configurations defined in the deployment. And what configurations would be? The used image, environment variables, name, labels, volumes and probes are just a few of what can be find there. Based on all that a pod can be created.
+
+Is always necessary in order to create a pod create a deployment? No.
+
+You can create pods by writing its definition (YAML or JSON) by yourself. The use of a deployment is to make all easier. If a pod gets deleted, using deployment, a new one is created automatically because every deployment works along with a Replica Set. So our study scenario can be described as the image below.
+
+[adicionar imagem]
+
+
 
 * Definição do produto
 * Como usar
