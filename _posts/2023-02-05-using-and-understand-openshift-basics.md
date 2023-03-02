@@ -67,9 +67,17 @@ With this approach a consumer, the application in our scenario, doesn't have to 
 
 But ... what if application A tries to send request to application B and B has multiple pods? How that would be handled? The answer is easy. OpenShift/Kubernetes services acts as load balancer. Once you hit the patterned URL showed above, the service will handle the rest, and the load-balancing algorithm can be customized in OpenShift scenarios. So, in a enterprise scenario expect multiple pods and services, it's rare to see an application without service.
 
-Using the same scenario, how this application would be accessed by client outside the cluster?
+Using the same scenario (application + database), how this application would be accessed by client outside the cluster? The routing layer comes to action.
 
-explicar routes e depois configmaps e secrets
+![Routing layer](/assets/img/using-and-understanding-openshift-basics/routing-layer.jpg){:style="display:block; margin-left:auto; margin-right:auto"}
+
+There is an entire routing layer dedicated to address this issue. So, if users or applications that live outside the cluster need to communicate with our application, they both can use this layer to achieve this goal. A route is an exclusive OpenShift object that basically connects itself with a service and expose a URL to external access. Non-secure or secure use cases of the HTTP protocal are addressed in this object.
+
+So, following the breadcrumb trail, a request comes from an external client (user or application) and is received by the route. The route redirects the call to the service and the service acts as a load-balancer redirecting to the pods.
+
+A commom question is: can my application send/receive data using the route even if it's communicating with an application which is deployed inside the cluster? Yes you can but you are overheading the communication because the service already gives you the opportunity to communicate using plain HTTP.
+
+Now you have in your pocket what can be considered the basis related to how OpenShift works and handles applications. But we, as software engineers, know that there is a huge amount of concerns that live around these simples concepts. One of these concerns are: how an application could be updated on OpenShift? In
 
 * Definição do produto
 * Como usar
