@@ -75,7 +75,7 @@ There is an entire routing layer dedicated to address this issue. So, if users o
 
 So, following the breadcrumb trail, a request comes from an external client (user or application) and is received by the route. The route redirects the call to the service and the service acts as a load-balancer redirecting to the pods.
 
-A commom question is: can my application send/receive data using the route even if it's communicating with an application which is deployed inside the cluster? Yes you can but you are overheading the communication because the service already gives you the opportunity to communicate using plain HTTP.
+A commom question is: can my application send/receive data using the route even if it's communicating with an application which is deployed inside the cluster? Yes you can but you are overheading the communication because the service layer already gives you the opportunity to communicate using plain HTTP.
 
 Now you have in your pocket what can be considered the basis related to how OpenShift works and handles applications. But we, as software engineers, know that there is a huge amount of concerns that live around these simples concepts. One of these concerns are: how an application could be updated on OpenShift? In our example the application PHP had some improvements and new version must be deployed. How that would be addressed using OpenShift?
 
@@ -83,9 +83,9 @@ A Deployment is a Kubernetes object widely used and adopted in OpenShift 4 to ho
 
 Is always necessary in order to create a pod create a deployment? No.
 
-You can create pods by writing its definition (YAML or JSON) by yourself. The use of a deployment is to make all easier. If a pod gets deleted, using deployment, a new one is created automatically because every deployment works along with a Replica Set. So our study scenario can be described as the image below.
+You can create pods by writing its definition (YAML or JSON) by yourself. The use of a deployment is to make all easier. If a pod gets deleted, using deployment, a new one is created automatically because every deployment works along with a Replica Set. The Replica Set is the object responsible to guarantee that the amount of replicas configured in one deployment will actually exist. This object is created automatically by OpenShift when a deployment is created and application's rollout is done. So our study scenario can be described as the image below.
 
-[adicionar imagem]
+![Pods + deployment + replica set + inner/outer communication](/assets/img/using-and-understanding-openshift-basics/full-comm.jpg){:style="display:block; margin-left:auto; margin-right:auto"}
 
 
 
