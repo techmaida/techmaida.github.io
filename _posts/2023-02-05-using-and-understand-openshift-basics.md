@@ -15,9 +15,7 @@ An important question has to be made at this point: has a company unlocked all D
 
 So, without further due. Let's get into it.
 
-## How to use it?
-
-### Installing
+## "Installing"
 
 Access `https://developers.redhat.com/products/openshift-local/overview` and click on "Try OpenShift in our free sandbox" button.
 
@@ -33,7 +31,7 @@ Click on the button which starts the sandbox (usually is a red button in the top
 
 Use the "DevSandbox" option. You'll be presented to OpenShift homepage. On uppper right corner click in your login name and select "Copy login command". You'll be request again to select "DevSandbox", click on it. A white page will be displayed with a blue hyperlink "Display Token", click on it. Once clicked copy the `oc login` command, paste it into a terminal and hit enter. You are ready to go.
 
-### Basic Concepts
+## Basic Concepts
 
 How your applications can run inside an OpenShift cluster ?
 
@@ -87,7 +85,19 @@ You can create pods by writing its definition (YAML or JSON) by yourself. The us
 
 ![Pods + deployment + replica set + inner/outer communication](/assets/img/using-and-understanding-openshift-basics/full-comm.jpg){:style="display:block; margin-left:auto; margin-right:auto"}
 
+One thing is important to consider. According to the third factor [3] in the 12 Factor-App methodology [2] configurations should be both consumed and stored as environment variables. So, to address this concern there are two objects in the Kubernetes/OpenShift world, the Config Map and the Secret. They are like cousins and usually walk together but with one difference. Secrets encode (base64) their data because are meant to sensitive data and Config Maps handle ordinary configuration data.
 
+So, using our scenario to explore these new objects we would have.
+
+![Injecting configuration as environment variables using ConfigMaps and Secrets](/assets/img/using-and-understanding-openshift-basics/injecting-configs.jpg){:style="display:block; margin-left:auto; margin-right:auto"}
+
+In both ConfigMaps and Secrets data can be stored as key-value pairs or as files. Using key-value pairs data will be mounted as environment variables in a deployment and therefore in pod(s). Using as files data will be introduced in configmaps or secrets using key-value pair mode but the key will be the file's name and value its content. OpenShift can notice the difference and mount the data as file using a determined path. Use reference [4] for more details if you're interested.
+
+![Ways to store data in configmaps and secrets](/assets/img/using-and-understanding-openshift-basics/key-value.jpg){:style="display:block; margin-left:auto; margin-right:auto"}
+
+That ends what you need to know about the basics on Kubernetes/OpenShift.
+
+## Deploying your first application
 
 * Definição do produto
 * Como usar
@@ -103,3 +113,6 @@ You can create pods by writing its definition (YAML or JSON) by yourself. The us
 ## References
 
 1. https://www.redhat.com/en/technologies/cloud-computing/openshift
+2. https://12factor.net/
+3. https://12factor.net/config
+4. https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
