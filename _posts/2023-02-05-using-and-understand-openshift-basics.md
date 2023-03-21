@@ -95,9 +95,31 @@ In both ConfigMaps and Secrets data can be stored as key-value pairs or as files
 
 ![Ways to store data in configmaps and secrets](/assets/img/using-and-understanding-openshift-basics/key-value.jpg){:style="display:block; margin-left:auto; margin-right:auto"}
 
-That ends what you need to know about the basics on Kubernetes/OpenShift.
+That ends what you need to know about the basics in Kubernetes/OpenShift.
 
 ## Deploying your first application
+
+So far we understood all the basics concepts in Kubernetes/OpenShift we're ready to deploy our very first application. You can find several examples on the internet how to do that but just in a few you'll understand how the process works behind the curtains.
+
+One of toppest features on OpenShift is the S2I process. The S2I process can be comprehended by the source code transformation into container image. Of course there is no black magic related to this and details about the process you can find in the docs [5]. But in a nutshell, OpenShift can detect the application runtime (Java, PHP, .Net, Golang, etc) using some verification such as finding an index.php or a pom.xml file, based on that selects the best base image present in the Red Hat Catalog and finally builds an optimized image.
+
+That opens a good discussion about containerization strategies because S2I goes in the opposite direction when compared to Dockerfiles/Containerfiles. It's possible to perform S2I even when there is a Dockerfile but the S2I process eliminates the need of a Dockerfile. So, what's the best?
+
+There is no accurate answer to that. You'll have to decide what is the best approach. One simple rule that I follow is: if your application is just some simple application that has no special requirements such as OS packages or sidecars go with the S2I. But if your case is the opposite, use Dockerfiles.
+
+Let's do some coding now !!! 
+
+We'll use a sample application written in Quarkus to show how easy is to deploy an application on OpenShift. The first thing to have in mind is that you must be logged in OpenShift. If you've done the "Installing" section you'll have no problem.
+
+Using the free sandbox as showed above a namespace is already created. We'll use that. Execute on a terminal the following instructions.
+```
+oc import-image ubi8/openjdk-11:latest --from=registry.access.redhat.com/ubi8/openjdk-11:latest --confirm -n <namespace>
+oc new-app openjdk-11~https://github.com/jpmaida/todo-list-quarkus#quarkus-2.0.0.Final-relational-db -n <namespace>
+```
+
+What just happened ?
+
+explicar comandos
 
 * Definição do produto
 * Como usar
@@ -116,3 +138,4 @@ That ends what you need to know about the basics on Kubernetes/OpenShift.
 2. https://12factor.net/
 3. https://12factor.net/config
 4. https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
+5. https://docs.openshift.com/container-platform/4.8/openshift_images/using_images/using-s21-images.html
