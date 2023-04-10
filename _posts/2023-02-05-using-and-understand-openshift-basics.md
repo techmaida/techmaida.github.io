@@ -119,18 +119,56 @@ oc new-app openjdk-11~https://github.com/jpmaida/todo-list-quarkus#quarkus-2.0.0
 
 What just happened ?
 
-explicar comandos
+Our application needs an OpenJDK 11 image and the cluster cannot provide that, so we need to import it. The importing process comprehends an image stream creation. The ImageStream object is responsible for managing images with different tags but under the same repository [6]. That's what the first command does. The second command is where the real magic happens, the S2I process. Let's get into details.
 
-* Definição do produto
-* Como usar
-    * Instalação
-    * Uso
-    * Interface web e CLI
-* Conceitos básicos
-* Implantando uma aplicação e mais alguns conceitos
-    * 2 jeitos
-        * new-app direto
-        * s2i com build
+If you type `oc new-app -h` in the terminal you'll be presented to the help utilitary. Each oc command has this `-h` feature.
+
+![oc new-app help](/assets/img/using-and-understanding-openshift-basics/oc-new-app-h.png){:style="display:block; margin-left:auto; margin-right:auto"}
+
+There are inumerous ways to use the `oc new-app` command in order to perform the s2i process. The way that we are using represents the following:
+
+```
+oc new-app <imagestream>~<git-repo-url> -n <namespace>
+```
+
+The `oc new-app` command downloads the source code from the git repo, determines the application's runtime and assembles the image stream provided with the source code to generate the image. The generated image is written inside the namespace provided. Using this approach the application's image stream apply the *latest* tag on the image. This method is really useful when the git repo used is public.
+
+There are some typical situations when using `oc new-app`, they are:
+* If the image stream is omitted the oc client determines the image stream to be used
+* If the git repo is private is possible to use env vars in order to configure credentials
+* If you need to specify one particular tag on the image stream in the `oc new-app` use:
+```
+oc new-app openjdk-11:1.15~https://github.com/jpmaida/todo-list-quarkus#quarkus-2.0.0.Final-relational-db -n <namespace>
+```
+* If you need to specify one particular git repo's branch use:
+```
+oc new-app openjdk-11~https://github.com/jpmaida/todo-list-quarkus#quarkus-2.0.0.Final-relational-db#<some-wild-branch> -n <namespace>
+```
+
+One other approach which I like most to create applications using s2i is:
+
+```
+oc project <namespace>
+oc import-image ubi8/openjdk-11:latest --from=registry.access.redhat.com/ubi8/openjdk-11:latest --confirm
+oc new-build --name=<name> --image-stream=<image-stream>:<tag> --binary
+oc start-build <build-name> --from-file=<path-to-package> --wait --follow
+oc new-app --name=<application-name> --image-stream=<application-image-stream>:<tag>
+```
+
+I know ... a lot of commands ... I know. Let's go step-by-step.
+* `oc project` is used to point to some specific namespace so you don't need to specify the `-n <namespace>` in each command
+* `oc import-image` we are already know
+* `oc new-build` create a new BuildConfig and ImageStream objects using the image stream provided as basis. We'll understand further what those objects do
+* `oc start-build` creates a new build using the configurations present inside the BuildConfig
+* `oc new-app` creates an application instance (deployment + service + pod) using the image stream provided as base image
+
+The BuildConfig object is responsible to hold configurations related to the building process. The `oc new-app` command, showed above, creates a brand-new BuildConfig to download the application source code. The building process here will upload the package informed in `oc start-build` command and process it in order to create the application's image.
+
+If you need more than one file to upload when using the `oc start-build` you can use the `--from-dir` flag. This flag uploads an entire directory. This strategy is really useful when you have more than one package to upload or when the you want to upload a entire directory full of source code. In that last case the `--binary` flag is not used.
+
+For most Java applications I use the `--binary` combined with `--from-file` flag but there are some cases when `--from-dir` is really useful. For .NetCore and PHP applications I use `--from-dir` flag combined with the source strategy. The source strategy is the default strategy when the `--binary` flag is not informed.
+
+One thing important to consider is 
 
 ## References
 
@@ -139,3 +177,4 @@ explicar comandos
 3. https://12factor.net/config
 4. https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
 5. https://docs.openshift.com/container-platform/4.8/openshift_images/using_images/using-s21-images.html
+6. https://docs.openshift.com/container-platform/4.10/openshift_images/image-streams-manage.html
