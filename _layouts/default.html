@@ -7,12 +7,6 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
-    <script type="text/javascript">
-      console.log('tese')
-      $(document).ready(function(){
-        $('#disqus_thread iframe').get(0).hide();
-      });
-    </script>
 {% seo %}
   </head>
 
@@ -59,4 +53,10 @@
       </script>
     {% endif %}
   </body>
+  <script type="text/javascript">
+    console.log('tese')
+    $(document).ready(function(){
+      $('#disqus_thread iframe').get(0).hide();
+    });
+  </script>
 </html>
