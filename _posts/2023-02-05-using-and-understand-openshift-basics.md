@@ -125,13 +125,13 @@ If you type `oc new-app -h` in the terminal you'll be presented to the help util
 
 ![oc new-app help](/assets/img/using-and-understanding-openshift-basics/oc-new-app-h.png){:style="display:block; margin-left:auto; margin-right:auto"}
 
-There are inumerous ways to use the `oc new-app` command in order to perform the s2i process. The way that we are using represents the following:
+There are numerous ways to use the `oc new-app` command in order to perform the s2i process. The way that we are using represents the following:
 
 ```
 oc new-app <imagestream>~<git-repo-url> -n <namespace>
 ```
 
-The `oc new-app` command downloads the source code from the git repo, determines the application's runtime and assembles the image stream provided with the source code to generate the image. The generated image is written inside the namespace provided. Using this approach the application's image stream apply the *latest* tag on the image. This method is really useful when the git repo used is public.
+The `oc new-app` command downloads the source code from the git repo, determines the application's runtime, and assembles the image stream provided with the source code to generate the image. The generated image is written inside the namespace provided. Using this approach the application's image stream applies the *latest* tag on the image. This method is really useful when the git repo used is public.
 
 There are some typical situations when using `oc new-app`, they are:
 * If the image stream is omitted the oc client determines the image stream to be used
@@ -157,14 +157,14 @@ oc new-app --name=<application-name> --image-stream=<application-image-stream>:<
 
 I know ... a lot of commands ... I know. Let's go step-by-step.
 * `oc project` is used to point to some specific namespace so you don't need to specify the `-n <namespace>` in each command
-* `oc import-image` we are already know
+* `oc import-image` we already know
 * `oc new-build` create a new BuildConfig and ImageStream objects using the image stream provided as basis. We'll understand further what those objects do
 * `oc start-build` creates a new build using the configurations present inside the BuildConfig
 * `oc new-app` creates an application instance (deployment + service + pod) using the image stream provided as base image
 
-The BuildConfig object is responsible to hold configurations related to the building process. The `oc new-app` command, showed above, creates a brand-new BuildConfig to download the application source code. The building process here will upload the package informed in `oc start-build` command and process it in order to create the application's image.
+The BuildConfig object is responsible to hold configurations related to the building process. The `oc new-app` command, shown above, creates a brand-new BuildConfig to download the application source code. The building process here will upload the package informed in `oc start-build` command and process it in order to create the application's image.
 
-If you need more than one file to upload when using the `oc start-build` you can use the `--from-dir` flag. This flag uploads an entire directory. This strategy is really useful when you have more than one package to upload or when the you want to upload a entire directory full of source code. In that last case the `--binary` flag is not used.
+If you need more than one file to upload when using the `oc start-build` you can use the `--from-dir` flag. This flag uploads an entire directory. This strategy is really useful when you have more than one package to upload or when you want to upload an entire directory full of source code.
 
 For most Java applications I use the `--binary` combined with `--from-file` flag but there are some cases when `--from-dir` is really useful. For .NetCore and PHP applications I use `--from-dir` flag combined with the source strategy. The source strategy is the default strategy when the `--binary` flag is not informed.
 
