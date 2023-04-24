@@ -7,7 +7,7 @@ tags: "DevOps, PaaS, Kubernetes"
 comments: true
 ---
 
-Red Hat OpenShift is DevOps tool, which is acquired or sold as a PaaS, that really puts the customer into a new level. And when I say "a new level" I mean serious because the tool is complete. With one shot you can get all your apps deployed inside containers with all ease that Kubernetes brings.
+Red Hat OpenShift is a DevOps tool, which is acquired or sold as a PaaS, that really puts the customer into a new level. And when I say "a new level" I mean serious because the tool is complete. With one shot you can get all your apps deployed inside containers with all ease that Kubernetes brings.
 
 And, by the way, I forgot to mention. OpenShift is built on the top of Kubernetes, so you can reuse all previous knowledge about Kubernetes, including `kubectl` CLI, architecture and enjoy at the same time a new level of abstraction. This new flavour has the objective to make some operations easier, provide a friendly interface to user and offer the ease to install other Red Hat products, such as AMQ or Red Hat Single Sign On, inside OpenShift [1].
 
@@ -29,7 +29,7 @@ Click on the button which starts the sandbox (usually is a red button in the top
 
 ![OpenShift login](/assets/img/using-and-understanding-openshift-basics/openshift-login.png)
 
-Use the "DevSandbox" option. You'll be presented to OpenShift homepage. On uppper right corner click in your login name and select "Copy login command". You'll be request again to select "DevSandbox", click on it. A white page will be displayed with a blue hyperlink "Display Token", click on it. Once clicked copy the `oc login` command, paste it into a terminal and hit enter. You are ready to go.
+Use the "DevSandbox" option. You'll be presented to OpenShift homepage. On the uppper right corner click in your login name and select "Copy login command". You'll be request again to select "DevSandbox", click on it. A white page will be displayed with a blue hyperlink "Display Token", click on it. Once clicked copy the `oc login` command, paste it into a terminal and hit enter. You are ready to go.
 
 ## Basic Concepts
 
@@ -37,21 +37,21 @@ How your applications can run inside an OpenShift cluster ?
 
 That's quite simple. An application exists inside the OpenShift organism as a pod. A pod, which is concept from the Kubernetes world, is the smallest unit possible, can be reflected as a YAML or JSON artifact, and represents an instance of something running. Every entity in the OpenShift or Kubernetes world can be reflected in that fashion. Inside a pod you can have one or multiple containers. That brings an important question. What is the good practice about it? OPOC (One Pod One Container) or OPMC (One Pod Multiple Containers)?
 
-![OPOC x OPMC](/assets/img/using-and-understanding-openshift-basics/opoc-opmc.jpg)
+![OPOC x OPMC](/assets/img/using-and-understanding-openshift-basics/opoc-opmc.jpg){:style="display:block; margin-left:auto; margin-right:auto"}
 
 The answer is simple, there is none. It depends on the situation and you must have in mind: if one pod goes down all containers inside follow the same path. That's your compass. You must take your decision based on that.
 
-A pod doesn't live by its own, it lives inside a namespace. A namespace is a logical division to workloads. Understand as a workload any productive applications that can run in a container and, therefore, are pods. You can easily find on internet that there are some default namespaces in OpenShift, and that's not a lie. OpenShift's inside components are also divided in namespaces so you can easily find them and see how they work. A namespace is also important to divide applications in a semantic way inside an enterprise fashion. So, if your company has billing, staff, accounting, sales and others departaments you have a big chance to see that division reflected in namespaces. Usually that's a good approach because it continues the dialect that is spoken in the company.
+A pod doesn't live by its own, it lives inside a namespace. A namespace is a logical division to workloads. Understand as a workload any productive applications that can run in a container and, therefore, are pods. You can easily find on the internet that there are some default namespaces in OpenShift, and that's not a lie. OpenShift's inside components are also divided into namespaces so you can easily find them and see how they work. A namespace is also important to divide applications in a semantic way inside an enterprise fashion. So, if your company has billing, staff, accounting, sales, and others departments you have a big chance to see that division reflected in namespaces. Usually, that's a good approach because it continues the dialect that is spoken in the company.
 
-![Namespace and containers](/assets/img/using-and-understanding-openshift-basics/namespace_and_containers.jpg)
+![Namespace and containers](/assets/img/using-and-understanding-openshift-basics/namespace_and_containers.jpg){:style="display:block; margin-left:auto; margin-right:auto"}
 
 To make the subject here discussed more feasible lets imagine a namespace which concentrates an PHP application and its database.
 
-![PHP application and its database](/assets/img/using-and-understanding-openshift-basics/app-and-database.jpg)
+![PHP application and its database](/assets/img/using-and-understanding-openshift-basics/app-and-database.jpg){:style="display:block; margin-left:auto; margin-right:auto"}
 
 How this application can communicate with the database? I assume that you're thinking about using the IP to directly close de communication, am I right?
 
-![Direct communication via IP](/assets/img/using-and-understanding-openshift-basics/direct-communiction-via-ip.png)
+![Direct communication via IP](/assets/img/using-and-understanding-openshift-basics/direct-communiction-via-ip.png){:style="display:block; margin-left:auto; margin-right:auto"}
 
 That would work, perhaps, just at the first glance, but in the very moment that any of these pods fails and gets deleted a new is generated, a new IP address is given to that pod. That is an important feature in OpenShift and in the cloud-native world. Pods and consequently must be deleted and regenerated all the time in a fast way, so it's implicit that application must have fast startup and shutdowm times. So, at the end, you cannot use direct communication such as IP addresses or local storage like using the filesystem to store files or memory to data.
 
@@ -168,7 +168,7 @@ If you need more than one file to upload when using the `oc start-build` you can
 
 For most Java applications I use the `--binary` combined with `--from-file` flag but there are some cases when `--from-dir` is really useful. For .NetCore and PHP applications I use `--from-dir` flag combined with the source strategy. The source strategy is the default strategy when the `--binary` flag is not informed.
 
-One thing important to consider is 
+One thing important to consider: if you don't want to feel yourself tied to the oc client, is possible to use the *s2i* client which is opensource. The s2i client can generate optimized Dockerfiles or perform the very s2i process.
 
 ## References
 
