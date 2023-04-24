@@ -177,8 +177,8 @@ One thing important to consider: if you don't want to feel yourself tied to the 
 ## References
 
 1. <https://www.redhat.com/en/technologies/cloud-computing/openshift>
-2. https://12factor.net/
-3. https://12factor.net/config
-4. https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
-5. https://docs.openshift.com/container-platform/4.8/openshift_images/using_images/using-s21-images.html
-6. https://docs.openshift.com/container-platform/4.10/openshift_images/image-streams-manage.html
+2. <https://12factor.net/>
+3. <https://12factor.net/config>
+4. <https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/>
+5. <https://docs.openshift.com/container-platform/4.8/openshift_images/using_images/using-s21-images.html>
+6. <https://docs.openshift.com/container-platform/4.10/openshift_images/image-streams-manage.html>
