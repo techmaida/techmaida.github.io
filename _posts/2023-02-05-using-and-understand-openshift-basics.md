@@ -170,6 +170,10 @@ For most Java applications I use the `--binary` combined with `--from-file` flag
 
 One thing important to consider: if you don't want to feel yourself tied to the oc client, is possible to use the *s2i* client which is opensource. The s2i client can generate optimized Dockerfiles or perform the very s2i process.
 
+## Conclusion
+
+
+
 ## References
 
 1. https://www.redhat.com/en/technologies/cloud-computing/openshift
