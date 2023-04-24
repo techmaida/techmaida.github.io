@@ -58,7 +58,7 @@
     
     $(document).ready(function(){
       setTimeout(
-        () => { $('#disqus_thread iframe').get(0).hide(); }
+        () => { $($('#disqus_thread iframe').get(0)).hide(); }
       , 5000);
       // $('#disqus_thread iframe').get(0).hide();
     });
