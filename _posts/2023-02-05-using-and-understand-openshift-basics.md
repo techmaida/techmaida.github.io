@@ -53,45 +53,45 @@ How this application can communicate with the database? I assume that you're thi
 
 ![Direct communication via IP](/assets/img/using-and-understanding-openshift-basics/direct-communiction-via-ip.png){:style="display:block; margin-left:auto; margin-right:auto"}
 
-That would work, perhaps, just at the first glance, but in the very moment that any of these pods fails and gets deleted a new is generated, a new IP address is given to that pod. That is an important feature in OpenShift and in the cloud-native world. Pods and consequently must be deleted and regenerated all the time in a fast way, so it's implicit that application must have fast startup and shutdowm times. So, at the end, you cannot use direct communication such as IP addresses or local storage like using the filesystem to store files or memory to data.
+That would work, perhaps, just at the first glance, but in the very moment that any of these pods fails and gets deleted a new is generated, a new IP address is given to that pod. That is an important feature in OpenShift and in the cloud-native world. Pods consequently must be deleted and regenerated all the time in a fast way, so it's implicit that application must have fast startup and shutdown times. So, in the end, you cannot use direct communication such as IP addresses or local storage like using the filesystem to store files or memory to data.
 
 But the question remains: how a container can communicate with other in a safe way?
 
 ![Application communicates with database via service](/assets/img/using-and-understanding-openshift-basics/comm-via-svc.jpg){:style="display:block; margin-left:auto; margin-right:auto"}
 
-There is an element both present in Kubernetes and OpenShift called Service meant to resolve this issue. A service works like a DNS host, in other words, performs a search by given name and redirects the request to the IPs registered above that name. But how a service would know the correct IPs to redirect to if containers receives new IPs all the time? Each service has a selector, a way to describe which pods it will bind. When a new pod is created there is or not a match and that pod and its IP get into line.
+There is an element both present in Kubernetes and OpenShift called Service meant to resolve this issue. A service works like a DNS host, in other words, performs a search by a given name and redirects the request to the IPs registered above that name. But how would a service know the correct IPs to redirect to if containers receives new IPs all the time? Each service has a selector, a way to describe which pods it will bind. When a new pod is created there is or not a match and that pod and its IP get into line.
 
-With this approach a consumer, the application in our scenario, doesn't have to concern where the database is. It only points to http://<service-name>.<namespace>.svc.cluster.local:<port>. This URL is just for internal cluster communications.
+With this approach a consumer, the application in our scenario, doesn't have to concern about where the database is. It only points to http://<service-name>.<namespace>.svc.cluster.local:<port>. This URL is just for internal cluster communications.
 
-But ... what if application A tries to send request to application B and B has multiple pods? How that would be handled? The answer is easy. OpenShift/Kubernetes services acts as load balancer. Once you hit the patterned URL showed above, the service will handle the rest, and the load-balancing algorithm can be customized in OpenShift scenarios. So, in a enterprise scenario expect multiple pods and services, it's rare to see an application without service.
+But ... what if application A tries to send a request to application B and B has multiple pods? How that would be handled? The answer is easy. OpenShift/Kubernetes services act as a load balancer. Once you hit the patterned URL shown above, the service will handle the rest, and the load-balancing algorithm can be customized in OpenShift scenarios. So, in an enterprise scenario expect multiple pods and services, it's rare to see an application without service.
 
-Using the same scenario (application + database), how this application would be accessed by client outside the cluster? The routing layer comes to action.
+Using the same scenario (application + database), how would this application be accessed by a client outside the cluster? The routing layer comes to action.
 
 ![Routing layer](/assets/img/using-and-understanding-openshift-basics/routing-layer.jpg){:style="display:block; margin-left:auto; margin-right:auto"}
 
-There is an entire routing layer dedicated to address this issue. So, if users or applications that live outside the cluster need to communicate with our application, they both can use this layer to achieve this goal. A route is an exclusive OpenShift object that basically connects itself with a service and expose a URL to external access. Non-secure or secure use cases of the HTTP protocal are addressed in this object.
+There is an entire routing layer dedicated to address this issue. So, if users or applications that live outside the cluster need to communicate with our application, they both can use this layer to achieve this goal. A route is an exclusive OpenShift object that basically connects itself with a service and exposes a URL to external access. Non-secure or secure use cases of the HTTP protocol are addressed in this object.
 
 So, following the breadcrumb trail, a request comes from an external client (user or application) and is received by the route. The route redirects the call to the service and the service acts as a load-balancer redirecting to the pods.
 
-A commom question is: can my application send/receive data using the route even if it's communicating with an application which is deployed inside the cluster? Yes you can but you are overheading the communication because the service layer already gives you the opportunity to communicate using plain HTTP.
+A common question is: can my application send/receive data using the route even if it's communicating with an application which is deployed inside the cluster? Yes, you can but you are overheading the communication because the service layer already gives you the opportunity to communicate using plain HTTP.
 
-Now you have in your pocket what can be considered the basis related to how OpenShift works and handles applications. But we, as software engineers, know that there is a huge amount of concerns that live around these simples concepts. One of these concerns are: how an application could be updated on OpenShift? In our example the application PHP had some improvements and new version must be deployed. How that would be addressed using OpenShift?
+Now you have in your pocket what can be considered the basis related to how OpenShift works and handles applications. But we, as software engineers, know that there is a huge amount of concerns that live around these simple concepts. One of these concerns is: how an application could be updated on OpenShift? In our example, the application PHP had some improvements and a new version must be deployed. How that would be addressed using OpenShift?
 
-A Deployment is a Kubernetes object widely used and adopted in OpenShift 4 to hold deployment configurations. A deployment holds the template of the future pods, so in this scenario a pod brings the configurations defined in the deployment. And what configurations would be? The used image, environment variables, name, labels, volumes and probes are just a few of what can be find there. Based on all that a pod can be created.
+A Deployment is a Kubernetes object widely used and adopted in OpenShift 4 to hold deployment configurations. A deployment holds the template of the future pods, so in this scenario, a pod brings the configurations defined in the deployment. And what configurations would be? The used image, environment variables, name, labels, volumes, and probes are just a few of what can be found there. Based on all that a pod can be created.
 
-Is always necessary in order to create a pod create a deployment? No.
+Is always necessary in order to create a pod to create a deployment? No.
 
-You can create pods by writing its definition (YAML or JSON) by yourself. The use of a deployment is to make all easier. If a pod gets deleted, using deployment, a new one is created automatically because every deployment works along with a Replica Set. The Replica Set is the object responsible to guarantee that the amount of replicas configured in one deployment will actually exist. This object is created automatically by OpenShift when a deployment is created and application's rollout is done. So our study scenario can be described as the image below.
+You can create pods by writing its definition (YAML or JSON) by yourself. The use of a deployment is to make all easier. If a pod gets deleted, using deployment, a new one is created automatically because every deployment works along with a Replica Set. The Replica Set is the object responsible for guaranteeing that the number of replicas configured in one deployment will actually exist. This object is created automatically by OpenShift when a deployment is created and the application's rollout is done. So our study scenario can be described in the image below.
 
 ![Pods + deployment + replica set + inner/outer communication](/assets/img/using-and-understanding-openshift-basics/full-comm.jpg){:style="display:block; margin-left:auto; margin-right:auto"}
 
-One thing is important to consider. According to the third factor [3] in the 12 Factor-App methodology [2] configurations should be both consumed and stored as environment variables. So, to address this concern there are two objects in the Kubernetes/OpenShift world, the Config Map and the Secret. They are like cousins and usually walk together but with one difference. Secrets encode (base64) their data because are meant to sensitive data and Config Maps handle ordinary configuration data.
+One thing is important to consider. According to the third factor [3] in the 12 Factor-App methodology [2] configurations should be both consumed and stored as environment variables. So, to address this concern there are two kinds of objects in the Kubernetes/OpenShift world, ConfigMaps and Secrets. They are like cousins and usually walk together but with one difference. Secrets encode (base64) their data because are meant for sensitive data and Config Maps handle ordinary configuration data.
 
 So, using our scenario to explore these new objects we would have.
 
 ![Injecting configuration as environment variables using ConfigMaps and Secrets](/assets/img/using-and-understanding-openshift-basics/injecting-configs.jpg){:style="display:block; margin-left:auto; margin-right:auto"}
 
-In both ConfigMaps and Secrets data can be stored as key-value pairs or as files. Using key-value pairs data will be mounted as environment variables in a deployment and therefore in pod(s). Using as files data will be introduced in configmaps or secrets using key-value pair mode but the key will be the file's name and value its content. OpenShift can notice the difference and mount the data as file using a determined path. Use reference [4] for more details if you're interested.
+In both ConfigMaps and Secrets data can be stored as key-value pairs or as files. Using key-value pairs data will be mounted as environment variables in a deployment and therefore in pod(s). Using as files data will be introduced in configmaps or secrets using key-value pair mode but the key will be the file's name and value its content. OpenShift can notice the difference and mount the data as a file using a determined path. Use reference [4] for more details if you're interested.
 
 ![Ways to store data in configmaps and secrets](/assets/img/using-and-understanding-openshift-basics/key-value.jpg){:style="display:block; margin-left:auto; margin-right:auto"}
 
@@ -99,9 +99,9 @@ That ends what you need to know about the basics in Kubernetes/OpenShift.
 
 ## Deploying your first application
 
-So far we understood all the basics concepts in Kubernetes/OpenShift we're ready to deploy our very first application. You can find several examples on the internet how to do that but just in a few you'll understand how the process works behind the curtains.
+So far we understood all the basic concepts in Kubernetes/OpenShift we're ready to deploy our very first application. You can find several examples on the internet of how to do that but just in a few, you'll understand how the process works behind the curtains.
 
-One of toppest features on OpenShift is the S2I process. The S2I process can be comprehended by the source code transformation into container image. Of course there is no black magic related to this and details about the process you can find in the docs [5]. But in a nutshell, OpenShift can detect the application runtime (Java, PHP, .Net, Golang, etc) using some verification such as finding an index.php or a pom.xml file, based on that selects the best base image present in the Red Hat Catalog and finally builds an optimized image.
+One of toppest features of OpenShift is the S2I process. The S2I process can be comprehended by the source code transformation into a container image. Of course, there is no black magic related to this and details about the process can be found in the docs [5]. But in a nutshell, OpenShift can detect the application runtime (Java, PHP, .Net, Golang, etc) using some verification such as finding an index.php or a pom.xml file, based on that selects the best base image present in the Red Hat Catalog and finally builds an optimized image.
 
 That opens a good discussion about containerization strategies because S2I goes in the opposite direction when compared to Dockerfiles/Containerfiles. It's possible to perform S2I even when there is a Dockerfile but the S2I process eliminates the need of a Dockerfile. So, what's the best?
 
@@ -111,7 +111,7 @@ Let's do some coding now !!!
 
 We'll use a sample application written in Quarkus to show how easy is to deploy an application on OpenShift. The first thing to have in mind is that you must be logged in OpenShift. If you've done the "Installing" section you'll have no problem.
 
-Using the free sandbox as showed above a namespace is already created. We'll use that. Execute on a terminal the following instructions.
+Using the free sandbox as shown above a namespace is already created. We'll use that. Execute on a terminal the following instructions.
 ```
 oc import-image ubi8/openjdk-11:latest --from=registry.access.redhat.com/ubi8/openjdk-11:latest --confirm -n <namespace>
 oc new-app openjdk-11~https://github.com/jpmaida/todo-list-quarkus#quarkus-2.0.0.Final-relational-db -n <namespace>
