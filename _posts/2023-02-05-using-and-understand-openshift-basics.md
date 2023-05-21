@@ -172,7 +172,11 @@ One thing important to consider: if you don't want to feel yourself tied to the 
 
 ## Conclusion
 
+OpenShift is indeed a complete tool/platform if your need is application's orchestration. However, is not because you're using it, it implies that you are safe and 100% in compliance with the cloud-native paradigm. It takes a lot of effort to get there and, perhaps, in the end of all the cloud-native title might be an utopia. I didn't have so far an experience with real cloud-native applications. The majority of scenarios are monoliths that were modified (in the smallest aggressive way possible) to run on an OpenShift cluster or not so well defined microservices which were built under a very-grained perspective causing a blast in the number of microservices.
 
+In both scenarios OpenShift was just a tool to host these applications. Some resources were misconfigured causing a waste of resources and there wasn`t any initiative to extract what the platform could best provide. My truth is that is not so hard to achieve, the only thing it takes is planning and some basic knowledge, which this article provides. The simple arrangement of a good namespace architecture combined with a good deployment strategy delivers a lot of value.
+
+I mentioned that planning and knowledge aren't things so hard to achieve. Knowledge you can find turning each corner, the offer of courses and tutorials is huge nowadays. The planning continues to be simple but just a little bit more laborious. If you face a migration to OpenShift or Kubernetes from the virtual machines world, you cannot do all the migration in one hit and expect that works. You have to move piece by piece, that's planning. Each piece that you move must have a mapping about the impacts that the change causes and a measure about the effort. That's the only way to achieve the best scenario possible, there aren't silver bullets.
 
 ## References
 
